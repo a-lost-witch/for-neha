@@ -162,7 +162,7 @@ function showMessage(){
   document.getElementById("message").innerText = messages[randomIndex];
 }
 
-// 💖 floating hearts generator
+// 💖 floating hearts
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
@@ -181,11 +181,23 @@ function createHeart() {
 
 setInterval(createHeart, 500);
 
-// 🎧 autoplay fix (required in some browsers)
-window.addEventListener('click', () => {
+// 🎧 music toggle
+let isPlaying = false;
+
+function toggleMusic(){
   const music = document.getElementById("bgMusic");
-  music.play();
-});
+  const btn = document.getElementById("musicBtn");
+
+  if(!isPlaying){
+    music.play();
+    btn.innerText = "⏸ Pause Music";
+    isPlaying = true;
+  } else {
+    music.pause();
+    btn.innerText = "🎧 Play Music";
+    isPlaying = false;
+  }
+}
 </script>
 
 </body>
